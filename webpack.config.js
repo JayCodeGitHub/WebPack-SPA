@@ -1,6 +1,8 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    mode: "development",
     entry: "./src/app.ts",
     output: {
         filename: 'app.js',
@@ -9,6 +11,11 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.js'],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+          template: './public/index.html', 
+        }),
+      ],
     module: {
         rules: [
             {
